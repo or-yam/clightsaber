@@ -1,12 +1,12 @@
 {
   "name": "clightsaber",
   "version": "0.0.1",
-  "description": "A light-saber for your command line",
-  "homepage": "",
+  "description": "A light-saber for command line",
+  "homepage": "https://github.com/or-yam/clightsaber",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/or-yam/clightsaber"
   },
   "main": "index.js",
   "scripts": {
