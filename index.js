@@ -15,7 +15,7 @@ program.parse(process.argv);
 const [selectedColor] = program.args;
 
 function logSaber(color) {
-  color = color.toLowerCase() || 'blue';
+  color = color?.toLowerCase() || 'blue';
 
   if (!colorsOptions.has(color)) {
     console.log(chalk.bgRedBright(`The color "${selectedColor}" is not available`));
