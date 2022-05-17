@@ -13,7 +13,7 @@ function logSaber(color) {
   }
 
   const saber = new cliProgress.SingleBar({
-    format: `==|${chalk[color || 'blue']('{bar})')}`,
+    format: `==.=|${chalk[color || 'blue']('{bar})')}`,
     barCompleteChar: '\u2588',
     barIncompleteChar: ' ',
     hideCursor: true
