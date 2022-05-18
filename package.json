@@ -19,7 +19,7 @@
     "publish-package": "npm run build && npm publish"
   },
   "bin": {
-    "clightsaber": "./bin/clightsaber"
+    "clightsaber": "./bin/clightsaber.js"
   },
   "keywords": [
     "lightsaber",
