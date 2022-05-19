@@ -3,30 +3,42 @@
   "version": "0.1.1",
   "description": "A light-saber for command line",
   "homepage": "https://github.com/or-yam/clightsaber",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/or-yam/clightsaber"
   },
-  "main": "index.js",
+  "author": "or-yam",
+  "license": "ISC",
+  "main": "./lib/index.js",
+  "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build && node ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p .",
+    "global": "npm i -g && clightsaber",
+    "publish-package": "npm run build && npm publish"
   },
-  "bin": "./index.js",
+  "bin": {
+    "clightsaber": "./bin/clightsaber.js"
+  },
   "keywords": [
     "lightsaber",
     "command-line",
     "cli"
   ],
-  "author": "or-yam",
-  "license": "ISC",
   "dependencies": {
     "chalk": "^5.0.1",
-    "chalk-animation": "^2.0.2",
     "cli-progress": "^3.11.0",
     "commander": "^9.2.0",
     "figlet": "^1.5.2",
     "gradient-string": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.0",
+    "@types/figlet": "^1.5.4",
+    "@types/gradient-string": "^1.1.2",
+    "ts-node": "^10.7.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.4"
   }
 }
