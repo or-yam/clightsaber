@@ -3,7 +3,7 @@
     "target": "es6",
     "lib": ["ES6", "ES2015", "ESNEXT", "dom"],
     "module": "ESNext",
-    "rootDir": "src",
+    "rootDir": ".",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "outDir": "lib",
@@ -14,5 +14,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", "lib", "test"]
+  "exclude": ["node_modules", "lib"]
 }
