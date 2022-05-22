@@ -12,7 +12,9 @@
   "main": "./lib/index.js",
   "type": "module",
   "scripts": {
-    "start": "npm run build && node ",
+    "start": "npm run build && node ./lib/index.js",
+    "lint": "eslint . --ext .ts",
+    "format": "eslint . --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
     "global": "npm i -g && clightsaber",
@@ -38,7 +40,37 @@
     "@types/cli-progress": "^3.11.0",
     "@types/figlet": "^1.5.4",
     "@types/gradient-string": "^1.1.2",
-    "ts-node": "^10.7.0",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.15.0",
+    "husky": "^8.0.1",
     "typescript": "^4.6.4"
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": "off",
+      "semi": "warn",
+      "no-process-exit": "off",
+      "node/no-unsupported-features": "off",
+      "node/no-unpublished-require": "off"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
