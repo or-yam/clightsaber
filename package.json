@@ -7,8 +7,10 @@
     "type": "git",
     "url": "https://github.com/or-yam/clightsaber"
   },
-  "author": "or-yam",
-  "license": "ISC",
+  "author": {
+    "name": "or-yam"
+  },
+  "license": "MIT",
   "main": "./lib/index.js",
   "type": "module",
   "scripts": {
