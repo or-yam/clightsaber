@@ -1,29 +1,17 @@
 import cliProgress from 'cli-progress';
 import chalk from 'chalk';
-
-enum COLORS {
-  RED = 'red',
-  GREEN = 'green',
-  BLUE = 'blue',
-  YELLOW = 'yellow',
-  CYAN = 'cyan',
-  MAGENTA = 'magenta',
-  WHITE = 'white'
-}
-
-const colorsOptions = [COLORS.RED, COLORS.GREEN, COLORS.BLUE, COLORS.YELLOW, COLORS.CYAN, COLORS.MAGENTA, COLORS.WHITE];
-
-export const helperText = `
-${chalk.bgGray('   Here are the available light-saber colors:   ')}
-${colorsOptions.map(color => `${chalk[color](color)}`).join(' ')}
-`;
+import { COLORS, colorsOptions } from './colors.js';
 
 function logSaber(color: string | undefined) {
   color = color?.toLowerCase() || 'blue';
 
   if (!colorsOptions.includes(color as COLORS)) {
-    console.log(chalk.bgRedBright(`   Sorry, we don't have a "${color}" light-saber   `));
-    console.log(helperText);
+    console.log(`
+    ${chalk.bgRedBright(`   Sorry, we don't have a "${color}" light-saber   `)}
+    
+    ${chalk.bgGray('   Here are the available light-saber colors:   ')}
+    ${colorsOptions.map(color => `${chalk[color](color)}`).join(' ')}
+    `);
     process.exit(1);
   }
 
