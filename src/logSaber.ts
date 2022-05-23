@@ -11,21 +11,19 @@ enum COLORS {
   WHITE = 'white'
 }
 
-const colorsOptions = new Set([
-  COLORS.RED,
-  COLORS.GREEN,
-  COLORS.BLUE,
-  COLORS.YELLOW,
-  COLORS.CYAN,
-  COLORS.MAGENTA,
-  COLORS.WHITE
-]);
+const colorsOptions = [COLORS.RED, COLORS.GREEN, COLORS.BLUE, COLORS.YELLOW, COLORS.CYAN, COLORS.MAGENTA, COLORS.WHITE];
+
+export const helperText = `
+${chalk.bgGray('   Here are the available light-saber colors:   ')}
+${colorsOptions.map(color => `${chalk[color](color)}`).join(' ')}
+`;
 
 function logSaber(color: string | undefined) {
   color = color?.toLowerCase() || 'blue';
 
-  if (!colorsOptions.has(color as COLORS)) {
-    console.log(chalk.bgRedBright(`The color "${color}" is not available`));
+  if (!colorsOptions.includes(color as COLORS)) {
+    console.log(chalk.bgRedBright(`   Sorry, we don't have a "${color}" light-saber   `));
+    console.log(helperText);
     process.exit(1);
   }
 
