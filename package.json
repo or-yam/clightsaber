@@ -19,8 +19,8 @@
     "format": "eslint . --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
-    "global": "npm i -g && clightsaber",
-    "publish-package": "npm run build && npm publish"
+    "publish-package": "npm run build && npm publish",
+    "bump-version": "npm run build && npm version patch"
   },
   "bin": {
     "clightsaber": "./bin/clightsaber.js"
