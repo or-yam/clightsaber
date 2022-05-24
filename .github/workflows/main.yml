@@ -12,8 +12,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Build and install 👷‍♀️
       - run: npm install
       - run: npm run build
+      - name: Publish to npm 🚀
       - uses: JS-DevTools/npm-publish@v1
         with:
           tag: latest
