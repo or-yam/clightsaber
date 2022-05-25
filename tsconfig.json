@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": ["ES6", "ES2015", "ESNEXT", "dom"],
-    "module": "ESNext",
+    "lib": ["es6"],
+    "module": "NodeNext",
     "rootDir": "src",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "outDir": "lib",
     "importHelpers": true,
