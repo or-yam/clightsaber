@@ -13,10 +13,9 @@ jobs:
         with:
           node-version: 16
       - name: Build and install 👷‍♀️
-      - run: npm install
-      - run: npm run build
+        run: npm install && npm run build
       - name: Publish to npm 🚀
-      - uses: JS-DevTools/npm-publish@v1
+        uses: JS-DevTools/npm-publish@v1
         with:
           tag: latest
           registry: https://registry.npmjs.org/
