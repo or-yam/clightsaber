@@ -1,23 +1,27 @@
-# CLIghtsaber
+# <center> <img alt=lightsabers src="./.github/lightsabers.png" width="50" height="50"> CLIghtsaber </center>
 
-## Useless cli tool that log a light-saber in your terminal
+## Useless cli tool that prints light-saber in your terminal
 
 ![Demo animation](./.github/demo-animation.gif)
 
 [![npm](https://img.shields.io/npm/v/clightsaber?logo=npm&label=version)](https://www.npmjs.com/package/clightsaber)
 [![npm](https://img.shields.io/npm/dw/clightsaber?label=npm)](https://www.npmjs.com/package/clightsaber)
 
-A fun CLI tool trying to follow [nodejs-cli-apps-best-practices](https://github.com/lirantal/nodejs-cli-apps-best-practices) For practical learning and having fun.
+### A fun project trying to follow [Nodejs-cli-apps best practices](https://github.com/lirantal/nodejs-cli-apps-best-practices) For practical learning and fun
 
-Inspired by [Jeff Delaney](https://github.com/codediodeio)'s (AKA [Fireship.io](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA)) [video](https://youtu.be/_oHByo8tiEY)
+### Inspired by [Jeff Delaney](https://github.com/codediodeio)'s (AKA [Fireship.io](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA)) [video](https://youtu.be/_oHByo8tiEY)
+
+---
 
 ## Usage
+
+Run
 
 ```shell
 npx clightsaber [color]
 ```
 
-`[color]` is optional variable
+`[color]` is optional parameter
 
 For example: `npx clightsaber` will log a blue saber.
 
@@ -27,7 +31,7 @@ You can also install it globally by running
 npm i -g clightsaber
 ```
 
-and then run `clightsaber [color]`
+Then run `clightsaber [color]`
 
 ## Available colors
 
@@ -39,6 +43,10 @@ and then run `clightsaber [color]`
 - Magenta
 - White
 
-The default color is blue
+The default color is Blue
 
-The code will convert the input to lower-case so you can use whatever letter casing you want.
+> The code will convert the input to lower-case so you can use whatever letter casing you want.
+
+### Incase you insert a color that not exist you'll get an error message
+
+You can also use the `--help` flag to see all color options
