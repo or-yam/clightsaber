@@ -7,7 +7,7 @@
 [![npm](https://img.shields.io/npm/v/clightsaber?logo=npm&label=version)](https://www.npmjs.com/package/clightsaber)
 [![npm](https://img.shields.io/npm/dw/clightsaber?label=npm)](https://www.npmjs.com/package/clightsaber)
 
-### A fun project trying to follow [Nodejs-cli-apps best practices](https://github.com/lirantal/nodejs-cli-apps-best-practices) For practical learning and fun
+### This fun project try to follow [Nodejs-cli-apps best practices](https://github.com/lirantal/nodejs-cli-apps-best-practices)
 
 ### Inspired by [Jeff Delaney](https://github.com/codediodeio)'s (AKA [Fireship.io](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA)) [video](https://youtu.be/_oHByo8tiEY)
 
