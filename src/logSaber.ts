@@ -5,6 +5,10 @@ import { COLORS, colorsOptions } from './colors.js';
 function logSaber(color: string | undefined) {
   color = color?.toLowerCase() || 'blue';
 
+  if (color === 'random') {
+    color = colorsOptions[Math.floor(Math.random() * colorsOptions.length)];
+  }
+  
   if (!colorsOptions.includes(color as COLORS)) {
     console.log(`
     ${chalk.bgRedBright(`   Sorry, we don't have a "${color}" light-saber   `)}
