@@ -45,6 +45,8 @@ Then run `clightsaber [color]`
 
 The default color is Blue
 
+You can also use `random` to generate a random color
+
 > The code will convert the input to lower-case so you can use whatever letter casing you want.
 
 ### Incase you insert a color that not exist you'll get an error message

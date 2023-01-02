@@ -13,6 +13,8 @@ program.addHelpText(
   Optional colors:
   ${colorsOptions.map(color => `${chalk[color](color)}`).join(' ')}
 
+  Or you can use <random> to get a random color
+
   Example of usage:
    $ cliightsaber red
   `
