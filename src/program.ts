@@ -1,6 +1,6 @@
 import { program } from 'commander';
 import chalk from 'chalk';
-import { colorsOptions } from './colors.js';
+import { COLORS } from './colors.js';
 
 program
   .name('CLightsaber')
@@ -11,7 +11,7 @@ program.addHelpText(
   'after',
   `
   Optional colors:
-  ${colorsOptions.map(color => `${chalk[color](color)}`).join(' ')}
+  ${COLORS.map(color => `${chalk[color](color)}`).join(' ')}
 
   Or you can use <random> to get a random color
 

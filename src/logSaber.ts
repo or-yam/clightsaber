@@ -1,34 +1,39 @@
 import cliProgress from 'cli-progress';
 import chalk from 'chalk';
-import { COLORS, colorsOptions } from './colors.js';
+import { COLORS, Color } from './colors.js';
+
+const HILT = '▐▍░▐░░▣░▒░▒░▒▕|';
+const LIGHT_BAR = '\u2588';
+const LIGHT_END = ')';
 
 function logSaber(color: string | undefined) {
   color = color?.toLowerCase() || 'blue';
 
   if (color === 'random') {
-    color = colorsOptions[Math.floor(Math.random() * colorsOptions.length)];
+    color = COLORS[Math.floor(Math.random() * COLORS.length)];
   }
-  
-  if (!colorsOptions.includes(color as COLORS)) {
+
+  if (!(COLORS as unknown as string[]).includes(color)) {
     console.log(`
     ${chalk.bgRedBright(`   Sorry, we don't have a "${color}" light-saber   `)}
     
     ${chalk.bgGray('   Here are the available light-saber colors:   ')}
-    ${colorsOptions.map(color => `${chalk[color](color)}`).join(' ')}
+    ${COLORS.map(color => `${chalk[color](color)}`).join(' ')}
     `);
     process.exit(1);
   }
 
   const saber = new cliProgress.SingleBar({
-    format: `==.=|${chalk[color as COLORS]('{bar})')}`,
-    barCompleteChar: '\u2588',
+    format: `${HILT}${chalk[color as Color]('{bar}')}`,
+    barCompleteChar: LIGHT_BAR,
     barIncompleteChar: ' ',
+    barGlue: LIGHT_END,
     hideCursor: true
   });
 
   const total = 100;
   let progress = 0;
-  saber.start(100, 0);
+  saber.start(total, 0);
 
   setInterval(() => {
     saber.update(++progress);
