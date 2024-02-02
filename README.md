@@ -2,7 +2,7 @@
 
 ## Useless cli tool that prints light-saber in your terminal
 
-![Demo animation](./.github/demo-animation.gif)
+![Demo animation](https://github.com/or-yam/clightsaber/raw/main/.github/demo-animation.gif)
 
 [![npm](https://img.shields.io/npm/v/clightsaber?logo=npm&label=version)](https://www.npmjs.com/package/clightsaber)
 [![npm](https://img.shields.io/npm/dw/clightsaber?label=npm)](https://www.npmjs.com/package/clightsaber)
