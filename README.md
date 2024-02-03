@@ -1,4 +1,4 @@
-# <center> <img alt=lightsabers src="https://github.com/or-yam/clightsaber/raw/main/.github/lightsabers.png" width="50" height="50"> CLIghtsaber </center>
+# <center> <img alt="lightsabers" src="https://github.com/or-yam/clightsaber/raw/main/.github/lightsabers.png" width="50" height="50"> CLIghtsaber </center>
 
 ## Useless cli tool that prints light-saber in your terminal
 
