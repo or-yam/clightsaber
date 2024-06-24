@@ -1,15 +1,21 @@
-import chalk from 'chalk';
 import logSaber from './logSaber.js';
-import program from './program.js';
-import logText from './logText.js';
+import { fancyLog } from './logText.js';
+import { DEFAULT_COLOR } from './colors.js';
+import { sleep } from './utils.js';
+import { title } from 'node:process';
+import { header, helpText } from './texts.js';
 
-const sleep = (ms = 500) => new Promise(r => setTimeout(r, ms));
+const selectedColor = process.argv[2] || DEFAULT_COLOR;
+const helpFlag = process.argv.includes('--help');
 
-const [selectedColor] = program.args;
+async function main() {
+  if (helpFlag) {
+    console.log(helpText);
+    process.exit(0);
+  }
 
-export default async function main() {
-  console.log(chalk.blueBright('\n a long time ago \n in a galaxy far, far away... \n'));
-  logText('CLightsaber');
+  console.log(title);
+  fancyLog(header);
   await sleep();
   console.log('\n');
   logSaber(selectedColor);

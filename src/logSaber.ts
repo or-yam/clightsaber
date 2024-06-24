@@ -1,30 +1,32 @@
+import { styleText } from 'node:util';
 import cliProgress from 'cli-progress';
-import chalk from 'chalk';
-import { COLORS, Color } from './colors.js';
+import { COLORS, Color, DEFAULT_COLOR } from './colors.js';
 
 const HILT = '▐▍░▐░░▣░▒░▒░▒▕|';
 const LIGHT_BAR = '\u2588';
 const LIGHT_END = ')';
 
 function logSaber(color: string | undefined) {
-  color = color?.toLowerCase() || 'blue';
+  color = color?.toLowerCase() || DEFAULT_COLOR;
 
   if (color === 'random') {
     color = COLORS[Math.floor(Math.random() * COLORS.length)];
   }
 
+  console.log('\n');
+
   if (!(COLORS as unknown as string[]).includes(color)) {
     console.log(`
-    ${chalk.bgRedBright(`   Sorry, we don't have a "${color}" light-saber   `)}
-    
-    ${chalk.bgGray('   Here are the available light-saber colors:   ')}
-    ${COLORS.map(color => `${chalk[color](color)}`).join(' ')}
+    ${styleText('bgRedBright', `   Sorry, we don't have a "${color}" light-saber   `)}
+
+    ${styleText('bgGray', '   Here are the available light-saber colors:   ')}
+    ${COLORS.map((color) => `${styleText(color, color)}`).join(' ')}
     `);
     process.exit(1);
   }
 
   const saber = new cliProgress.SingleBar({
-    format: `${HILT}${chalk[color as Color]('{bar}')}`,
+    format: `${HILT}${styleText([color as Color], '{bar}')}`,
     barCompleteChar: LIGHT_BAR,
     barIncompleteChar: ' ',
     barGlue: LIGHT_END,
