@@ -1,14 +1,12 @@
-import gradient from 'gradient-string';
+import { styleText } from 'node:util';
 import figlet from 'figlet';
 
-function logText(text: string) {
+export function fancyLog(text: string) {
   figlet(text, {}, (err, data) => {
-    if (err) {
+    if (err || !data) {
       console.log('Something went wrong...');
       return;
     }
-    console.log(gradient.fruit.multiline(data));
+    console.log(styleText('whiteBright', data));
   });
 }
-
-export default logText;
