@@ -2,8 +2,7 @@ import logSaber from './logSaber.js';
 import { fancyLog } from './logText.js';
 import { DEFAULT_COLOR } from './colors.js';
 import { sleep } from './utils.js';
-import { title } from 'node:process';
-import { header, helpText } from './texts.js';
+import { header, helpText, title } from './texts.js';
 
 const selectedColor = process.argv[2] || DEFAULT_COLOR;
 const helpFlag = process.argv.includes('--help');
