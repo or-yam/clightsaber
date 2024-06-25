@@ -8,14 +8,14 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 20
       - name: Build and install 👷‍♀️
-        run: npm install && npm run build
+        run: npm ci && npm run build
       - name: Publish to npm 🚀
-        uses: JS-DevTools/npm-publish@v1
+        uses: JS-DevTools/npm-publish@v3
         with:
           tag: latest
           registry: https://registry.npmjs.org/
