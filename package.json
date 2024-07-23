@@ -1,6 +1,6 @@
 {
   "name": "clightsaber",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A light-saber for command line",
   "homepage": "https://github.com/or-yam/clightsaber",
   "repository": {
@@ -17,7 +17,7 @@
     "start": "npm run build && node ./lib/index.js",
     "lint": "eslint . --ext .ts",
     "format": "eslint . --ext .ts --fix",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test tests/*.js",
     "build": "tsc -p .",
     "publish-package": "npm run build && npm publish",
     "bump-version": "npm run build && npm version patch"

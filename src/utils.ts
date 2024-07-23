@@ -1,1 +1,3 @@
-export const sleep = (ms = 500) => new Promise((r) => setTimeout(r, ms));
+import { setTimeout } from 'node:timers/promises';
+
+export const sleep = (ms = 500) => setTimeout(ms);
