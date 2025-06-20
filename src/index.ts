@@ -1,23 +1,34 @@
-import logSaber from './logSaber.js';
-import { fancyLog } from './logText.js';
-import { DEFAULT_COLOR } from './colors.js';
-import { sleep } from './utils.js';
-import { header, helpText, title } from './texts.js';
+import { Command } from "commander";
+import logSaber from "./logSaber.js";
+import { fancyLog } from "./logText.js";
+import { DEFAULT_COLOR, COLORS } from "./colors.js";
+import { sleep } from "./utils.js";
+import { header, title } from "./texts.js";
 
-const selectedColor = process.argv[2] || DEFAULT_COLOR;
-const helpFlag = process.argv.includes('--help');
+const program = new Command();
+const packageJson = await import("../package.json", { with: { type: "json" } });
 
-async function main() {
-  if (helpFlag) {
-    console.log(helpText);
-    process.exit(0);
-  }
+program
+  .version(packageJson.default.version)
+  .description("A light-saber for command line")
+  .argument("[color]", "The color of the lightsaber", DEFAULT_COLOR)
+  .addHelpText(
+    "after",
+    `
+Examples:
+  $ clightsaber red
+  $ clightsaber random
 
-  console.log(title);
-  fancyLog(header);
-  await sleep();
-  console.log('\n');
-  logSaber(selectedColor);
-}
+Available colors:
+  ${COLORS.join(", ")}
+`
+  )
+  .action(async (color) => {
+    console.log(title);
+    fancyLog(header);
+    await sleep();
+    console.log("\n");
+    logSaber(color);
+  });
 
-main();
+program.parse(process.argv);
