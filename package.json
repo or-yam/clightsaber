@@ -32,18 +32,18 @@
   ],
   "dependencies": {
     "cli-progress": "^3.12.0",
-    "figlet": "^1.7.0",
-    "tslib": "^2.6.2"
+    "figlet": "^1.8.1",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@types/cli-progress": "^3.11.5",
-    "@types/figlet": "^1.5.8",
+    "@types/cli-progress": "^3.11.6",
+    "@types/figlet": "^1.7.0",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
-    "@types/node": "20.14.8",
+    "@types/node": "24.0.3",
     "eslint": "^8.5.0",
-    "husky": "^9.0.11",
-    "typescript": "^5.5.2"
+    "husky": "^9.1.7",
+    "typescript": "^5.8.3"
   },
   "eslintConfig": {
     "root": true,
