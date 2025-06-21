@@ -2,7 +2,7 @@
 	"extends": "./tsconfig.build.json",
 	"compilerOptions": {
 		"noEmit": true,
-		"module": "Preserve",
+        "module": "NodeNext",
 		"rootDir": "."
 	},
 	"include": ["src", "tests"]

@@ -14,9 +14,9 @@ import {
 	MAX_SPEED,
 } from "./config.js";
 import logSaber from "./logSaber.js";
-import { header, title } from "./texts.js";
+import { colorError, header, title } from "./texts.js";
 import type { CliOptions, LogSaberOptions } from "./types.js";
-import { sleep } from "./utils.js";
+import { exitWithError, sleep } from "./utils.js";
 
 const program = new Command();
 const packageJson = await import("../package.json", { with: { type: "json" } });
@@ -53,33 +53,18 @@ Available colors:
 	)
 	.action(async (color: ColorOption, options: CliOptions) => {
 		if (!COLOR_OPTIONS.includes(color)) {
-			console.error(
-				`
-    ${styleText(
-			"bgRedBright",
-			`   Sorry, we don't have a "${color}" light-saber   `,
-		)}
-
-    ${styleText("bgGray", "   Here are the available light-saber colors:   ")}
-    ${COLORS.map((color) => `${styleText(color, color)}`).join(" ")}
-
-    You can also use 'random' to get a random color.
-    `,
-			);
-			process.exit(1);
+			exitWithError(colorError(color));
 		}
 
 		const speed = Math.min(parseInt(options.speed, 10), MAX_SPEED);
 		const length = Math.min(parseInt(options.length, 10), MAX_LENGTH);
 
 		if (Number.isNaN(speed) || speed <= 0) {
-			console.error("Error: Speed must be a positive number.");
-			process.exit(1);
+			exitWithError("Error: Speed must be a positive number.");
 		}
 
 		if (Number.isNaN(length) || length <= 0) {
-			console.error("Error: Length must be a positive number.");
-			process.exit(1);
+			exitWithError("Error: Length must be a positive number.");
 		}
 
 		const logSaberOptions: LogSaberOptions = {

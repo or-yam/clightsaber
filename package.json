@@ -21,9 +21,7 @@
     "check": "pnpm exec biome check",
     "test": "vitest run",
     "prebuild": "rm -rf lib",
-    "build": "tsc -p tsconfig.build.json",
-    "publish-package": "npm run build && npm publish",
-    "bump-version": "npm run build && npm version patch"
+    "build": "tsc -p tsconfig.build.json"
   },
   "bin": {
     "clightsaber": "./lib/cli.js"
