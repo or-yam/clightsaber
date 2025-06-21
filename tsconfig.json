@@ -1,17 +1,9 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "lib": ["es6"],
-    "module": "NodeNext",
-    "rootDir": "src",
-    "resolveJsonModule": true,
-    "outDir": "lib",
-    "importHelpers": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true
-  },
-  "exclude": ["node_modules", "lib", "test"]
+	"extends": "./tsconfig.build.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"module": "Preserve",
+		"rootDir": "."
+	},
+	"include": ["src", "tests"]
 }

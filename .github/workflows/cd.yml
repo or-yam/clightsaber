@@ -1,0 +1,31 @@
+name: 'CD'
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.4.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build
+        run: pnpm run build
+      - name: Test built CLI
+        run: node lib/cli.js --version
+      - name: Publish to npm
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          tag: latest
+          registry: https://registry.npmjs.org/
+          check-version: true
+          token: ${{ secrets.NPM_TOKEN }}

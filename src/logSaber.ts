@@ -1,49 +1,45 @@
-import { styleText } from 'node:util';
-import cliProgress from 'cli-progress';
-import { COLORS, Color, DEFAULT_COLOR } from './colors.js';
+import { styleText } from "node:util";
+import cliProgress from "cli-progress";
+import { COLORS, type Color, type ColorOption } from "./colors.js";
+import type { LogSaberOptions } from "./types.js";
 
-const HILT = '▐▍░▐░░▣░▒░▒░▒▕|';
-const LIGHT_BAR = '\u2588';
-const LIGHT_END = ')';
+const HILT = "▐▍░▐░░▣░▒░▒░▒▕|";
+const LIGHT_BAR = "\u2588";
+const LIGHT_END = ")";
 
-function logSaber(color: string | undefined) {
-  color = color?.toLowerCase() || DEFAULT_COLOR;
+function logSaber(color: ColorOption, options: LogSaberOptions): Promise<void> {
+	return new Promise((resolve) => {
+		let saberColor: Color;
+		if (color === "random") {
+			saberColor = COLORS[Math.floor(Math.random() * COLORS.length)];
+		} else {
+			saberColor = color;
+		}
 
-  if (color === 'random') {
-    color = COLORS[Math.floor(Math.random() * COLORS.length)];
-  }
+		console.log("\n");
 
-  console.log('\n');
+		const saber = new cliProgress.SingleBar({
+			format: `${HILT}${styleText(saberColor, "{bar}")}`,
+			barCompleteChar: LIGHT_BAR,
+			barIncompleteChar: " ",
+			barGlue: LIGHT_END,
+			hideCursor: true,
+			barsize: options.length,
+		});
 
-  if (!(COLORS as unknown as string[]).includes(color)) {
-    console.log(`
-    ${styleText('bgRedBright', `   Sorry, we don't have a "${color}" light-saber   `)}
+		const maxProgress = 100;
+		let progress = 0;
+		saber.start(maxProgress, 0);
 
-    ${styleText('bgGray', '   Here are the available light-saber colors:   ')}
-    ${COLORS.map((color) => `${styleText(color, color)}`).join(' ')}
-    `);
-    process.exit(1);
-  }
-
-  const saber = new cliProgress.SingleBar({
-    format: `${HILT}${styleText([color as Color], '{bar}')}`,
-    barCompleteChar: LIGHT_BAR,
-    barIncompleteChar: ' ',
-    barGlue: LIGHT_END,
-    hideCursor: true
-  });
-
-  const total = 100;
-  let progress = 0;
-  saber.start(total, 0);
-
-  setInterval(() => {
-    saber.update(++progress);
-    if (progress === total) {
-      saber.stop();
-      process.exit(0);
-    }
-  }, 5);
+		const timer = setInterval(() => {
+			saber.update(++progress);
+			if (progress === maxProgress) {
+				saber.stop();
+				clearInterval(timer);
+				resolve();
+			}
+		}, options.speed);
+	});
 }
 
 export default logSaber;
