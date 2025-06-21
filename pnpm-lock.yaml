@@ -14,9 +14,6 @@ importers:
       commander:
         specifier: ^14.0.0
         version: 14.0.0
-      figlet:
-        specifier: ^1.8.1
-        version: 1.8.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -30,9 +27,6 @@ importers:
       '@types/commander':
         specifier: ^2.12.5
         version: 2.12.5
-      '@types/figlet':
-        specifier: ^1.7.0
-        version: 1.7.0
       '@types/node':
         specifier: 24.0.3
         version: 24.0.3
@@ -367,9 +361,6 @@ packages:
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
-  '@types/figlet@1.7.0':
-    resolution: {integrity: sha512-KwrT7p/8Eo3Op/HBSIwGXOsTZKYiM9NpWRBJ5sVjWP/SmlS+oxxRvJht/FNAtliJvja44N3ul1yATgohnVBV0Q==}
-
   '@types/node@24.0.3':
     resolution: {integrity: sha512-R4I/kzCYAdRLzfiCabn9hxWfbuHS573x+r0dJMkkzThEa7pbrcDWK+9zu3e7aBOouf+rQAciqPFMnxwr0aWgKg==}
 
@@ -468,11 +459,6 @@ packages:
     peerDependenciesMeta:
       picomatch:
         optional: true
-
-  figlet@1.8.1:
-    resolution: {integrity: sha512-kEC3Sme+YvA8Hkibv0NR1oClGcWia0VB2fC1SlMy027cwe795Xx40Xiv/nw/iFAwQLupymWh+uhAAErn/7hwPg==}
-    engines: {node: '>= 0.4.0'}
-    hasBin: true
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -848,8 +834,6 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
-  '@types/figlet@1.7.0': {}
-
   '@types/node@24.0.3':
     dependencies:
       undici-types: 7.8.0
@@ -965,8 +949,6 @@ snapshots:
   fdir@6.4.6(picomatch@4.0.2):
     optionalDependencies:
       picomatch: 4.0.2
-
-  figlet@1.8.1: {}
 
   fsevents@2.3.3:
     optional: true
