@@ -4,7 +4,6 @@ import { COLORS, type Color, type ColorOption } from "./colors.js";
 import type { LogSaberOptions } from "./types.js";
 
 const HILT = "▐▍░▐░░▣░▒░▒░▒▕|";
-// const HILT = `[//////<*>|||`;
 const LIGHT_BAR = "\u2588";
 const LIGHT_END = ")";
 
