@@ -1,12 +1,13 @@
 import { styleText } from "node:util";
 import cliProgress from "cli-progress";
 import { COLORS, Color, ColorOption } from "./colors.js";
+import type { LogSaberOptions } from "./types.js";
 
 const HILT = "▐▍░▐░░▣░▒░▒░▒▕|";
 const LIGHT_BAR = "\u2588";
 const LIGHT_END = ")";
 
-function logSaber(color: ColorOption): Promise<void> {
+function logSaber(color: ColorOption, options: LogSaberOptions): Promise<void> {
   return new Promise((resolve) => {
     let saberColor: Color;
     if (color === "random") {
@@ -23,20 +24,21 @@ function logSaber(color: ColorOption): Promise<void> {
       barIncompleteChar: " ",
       barGlue: LIGHT_END,
       hideCursor: true,
+      barsize: options.length,
     });
 
-    const total = 100;
+    const maxProgress = 100;
     let progress = 0;
-    saber.start(total, 0);
+    saber.start(maxProgress, 0);
 
     const timer = setInterval(() => {
       saber.update(++progress);
-      if (progress === total) {
+      if (progress === maxProgress) {
         saber.stop();
         clearInterval(timer);
         resolve();
       }
-    }, 5);
+    }, options.speed);
   });
 }
 
