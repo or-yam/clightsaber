@@ -14,10 +14,11 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "npm run build && node ./lib/index.js",
-    "lint": "eslint . --ext .ts",
+    "start": "pnpm run build && node ./lib/index.js",
     "type-check": "tsc -p tsconfig.json",
-    "format": "eslint . --ext .ts --fix",
+    "lint": "pnpm exec biome lint",
+    "format": "pnpm exec biome format --write",
+    "check": "pnpm exec biome check",
     "test": "vitest run",
     "prebuild": "rm -rf lib",
     "build": "tsc -p tsconfig.build.json",
@@ -39,42 +40,12 @@
     "tslib": "^2.8.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.0.4",
     "@types/cli-progress": "^3.11.6",
     "@types/commander": "^2.12.5",
     "@types/figlet": "^1.7.0",
     "@types/node": "24.0.3",
-    "@typescript-eslint/eslint-plugin": "^7.13.1",
-    "@typescript-eslint/parser": "^7.13.1",
-    "eslint": "^8.5.0",
-    "husky": "^9.1.7",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
-  },
-  "eslintConfig": {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended"
-    ],
-    "env": {
-      "node": true
-    },
-    "rules": {
-      "no-console": "off",
-      "semi": "warn",
-      "no-process-exit": "off",
-      "node/no-unsupported-features": "off",
-      "node/no-unpublished-require": "off"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }

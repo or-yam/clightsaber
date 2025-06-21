@@ -1,8 +1,8 @@
 export type LogSaberOptions = {
-  length: number;
-  speed: number;
+	length: number;
+	speed: number;
 };
 
 export type CliOptions = {
-  [key in keyof LogSaberOptions]: string;
+	[key in keyof LogSaberOptions]: string;
 };
