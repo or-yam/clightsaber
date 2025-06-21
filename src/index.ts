@@ -1,5 +1,6 @@
 import { styleText } from "node:util";
 import { Command } from "commander";
+import { darthVader, rebelAlliance } from "./ascii.js";
 import {
 	COLOR_OPTIONS,
 	COLORS,
@@ -13,7 +14,6 @@ import {
 	MAX_SPEED,
 } from "./config.js";
 import logSaber from "./logSaber.js";
-import { fancyLog } from "./logText.js";
 import { header, title } from "./texts.js";
 import type { CliOptions, LogSaberOptions } from "./types.js";
 import { sleep } from "./utils.js";
@@ -88,10 +88,15 @@ Available colors:
 		};
 
 		console.log(title);
-		fancyLog(header);
+		console.log(header);
 		await sleep();
-		console.log("\n");
 		await logSaber(color, logSaberOptions);
+		if (color === "red") {
+			console.log(darthVader);
+		}
+		if (color === "blue") {
+			console.log(styleText("redBright", rebelAlliance));
+		}
 		process.exit(0);
 	});
 
