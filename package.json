@@ -1,6 +1,6 @@
 {
   "name": "clightsaber",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "packageManager": "pnpm@9.4.0",
   "description": "A light-saber for command line",
   "homepage": "https://github.com/or-yam/clightsaber",
@@ -32,6 +32,9 @@
     "lightsaber",
     "command-line",
     "cli"
+  ],
+  "files": [
+    "lib"
   ],
   "dependencies": {
     "cli-progress": "^3.12.0",
